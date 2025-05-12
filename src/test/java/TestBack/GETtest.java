@@ -53,4 +53,43 @@ public class GETtest {
                 .log()
                 .body(false); // Para obtenerlo como string
     }
+
+    @Test
+    public void PostTest() {
+        given()
+                .header("x-api-key", "reqres-free-v1")
+                .header("Content-Type", "application/json")
+                .body("{ \"name\": \"morpheus\", \"job\": \"leader\" }")
+                .when()
+                .post("https://reqres.in/api/users")
+                .then()
+                .statusCode(201)
+                .log()
+                .body(false); // false para que no se imprima todo si es largo
+    }
+
+    @Test
+    public void PutTest() {
+        given()
+                .header("x-api-key", "reqres-free-v1")
+                .header("Content-Type", "application/json")
+                .body("{ \"name\": \"morpheus\", \"job\": \"zion resident\" }")
+                .when()
+                .put("https://reqres.in/api/users/2")
+                .then()
+                .statusCode(200)
+                .log()
+                .body(false);
+    }
+
+    @Test
+    public void DeleteTest() {
+        given()
+                .header("x-api-key", "reqres-free-v1")
+                .when()
+                .delete("https://reqres.in/api/users/2")
+                .then()
+                .statusCode(204)
+                .log();
+    }
 }
