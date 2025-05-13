@@ -60,6 +60,5 @@ public class PUTTest {
         System.out.println("FECHA DE MODIFICACION: " + fechaModificada);
         System.out.println("FECHA ACTUAL: " + fechaActual);
         System.out.println("CODIGO DE RESPUESTA: " + responseBody.getStatusCode());
-
     }
 }
